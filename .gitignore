@@ -1,0 +1,28 @@
+# Python virtual environment (dibuat ulang via: pip install -r requirements.txt)
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Audio mentah rapat (tidak di-upload ke repo publik)
+*.mp3
+*.mpeg
+*.mp4
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac
+*.opus
+
+# Hasil transkripsi (hanya source code yang di-push)
+transcribe_hasil/
+zip_archive/
+**/transkrip*.json
+**/transkrip*.txt
+**/*_segmented.txt
+**/Notulen_*.md
+**/rangkuman_*.md
+*.docx

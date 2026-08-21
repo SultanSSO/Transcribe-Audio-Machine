@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Launcher dashboard Mesin Transcribe — untuk git-bash / terminal POSIX.
+# Pemakaian:
+#   ./transcribe                # buka di 127.0.0.1:8765 + auto-open browser
+#   ./transcribe --host 0.0.0.0 # akses dari perangkat lain di LAN
+cd "$(dirname "$0")" || exit 1
+exec .venv/Scripts/python.exe -m src.web.server "$@"

@@ -1,0 +1,119 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+.app { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 4px 16px;
+}
+header h1 { font-size: 22px; color: #f8fafc; }
+.env-status { font-size: 13px; color: #94a3b8; }
+.env-status .ok { color: #4ade80; }
+.env-status .warn { color: #facc15; }
+
+.layout { display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
+
+.sidebar { display: flex; flex-direction: column; gap: 14px; }
+
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 14px;
+}
+.card h2 { font-size: 14px; margin-bottom: 10px; color: #cbd5e1; }
+
+.dropzone {
+  border: 2px dashed #475569;
+  border-radius: 8px;
+  padding: 22px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.dropzone:hover, .dropzone.dragover {
+  border-color: #38bdf8; background: #0f172a;
+}
+.dropzone p { color: #cbd5e1; }
+.dropzone .hint { font-size: 12px; color: #64748b; }
+
+.file-info { margin-top: 10px; font-size: 13px; }
+.file-info .file-name { color: #38bdf8; word-break: break-all; }
+.file-info .file-meta { color: #94a3b8; font-size: 12px; }
+.hidden { display: none; }
+
+label { display: block; font-size: 12px; color: #94a3b8; margin: 10px 0 4px; }
+select {
+  width: 100%; padding: 8px; border-radius: 6px;
+  border: 1px solid #334155; background: #0f172a; color: #e2e8f0;
+}
+label.checkbox { display: flex; align-items: center; gap: 6px; margin-top: 12px; color: #cbd5e1; }
+label.checkbox input { accent-color: #38bdf8; }
+
+.btn {
+  display: block; width: 100%; padding: 10px; margin-top: 8px;
+  border: none; border-radius: 6px; cursor: pointer;
+  font-size: 14px; font-weight: 600; text-align: center;
+}
+.btn.primary { background: #0284c7; color: #fff; }
+.btn.primary:hover:not(:disabled) { background: #0369a1; }
+.btn.danger { background: #b91c1c; color: #fff; }
+.btn.danger:hover:not(:disabled) { background: #991b1b; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.small { display: inline-block; width: auto; padding: 6px 10px; font-size: 12px; background: #334155; color: #e2e8f0; text-decoration: none; }
+
+.history { list-style: none; max-height: 220px; overflow-y: auto; font-size: 13px; }
+.history li { padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+.history li:hover { background: #334155; }
+.history li.active { background: #0369a1; }
+.history li.empty { cursor: default; color: #64748b; }
+.history li.empty:hover { background: none; }
+
+.main { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+.progress-wrap {
+  background: #0f172a; border-radius: 8px; height: 26px; overflow: hidden;
+  border: 1px solid #334155;
+}
+.progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  transition: width .3s ease;
+  display: flex; align-items: center; justify-content: flex-end;
+}
+.progress-bar span { font-size: 12px; padding-right: 8px; color: #fff; font-weight: 700; }
+.status-text { margin-top: 8px; font-size: 13px; color: #94a3b8; }
+
+.log {
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  padding: 10px; height: 230px; overflow-y: auto;
+  font-family: Consolas, monospace; font-size: 12px; line-height: 1.5;
+  color: #a5f3fc; white-space: pre-wrap; word-break: break-word;
+}
+.log .seg { color: #e2e8f0; }
+.log .err { color: #f87171; }
+.log .ok { color: #4ade80; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 8px; }
+.tab {
+  padding: 6px 14px; border-radius: 6px; border: 1px solid #334155;
+  background: #0f172a; color: #94a3b8; cursor: pointer; font-size: 13px;
+}
+.tab.active { background: #0284c7; color: #fff; border-color: #0284c7; }
+
+.tabs-actions { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.result-path { font-size: 12px; color: #64748b; word-break: break-all; }
+
+.preview {
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  padding: 10px; height: 260px; overflow-y: auto;
+  font-family: Consolas, monospace; font-size: 12px; line-height: 1.5;
+  white-space: pre-wrap; word-break: break-word; color: #e2e8f0;
+}

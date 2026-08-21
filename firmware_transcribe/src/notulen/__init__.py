@@ -1,0 +1,1 @@
+"""Notulen generator package."""

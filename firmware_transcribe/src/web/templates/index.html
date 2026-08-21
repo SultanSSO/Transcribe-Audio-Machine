@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesin Transcribe — Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <h1>🎙️ Mesin Transcribe</h1>
+    <div id="env-status" class="env-status">Memeriksa lingkungan...</div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="sidebar">
+      <section class="card">
+        <h2>📁 File Audio</h2>
+        <div id="dropzone" class="dropzone">
+          <p>Seret file audio ke sini</p>
+          <p class="hint">atau klik untuk pilih</p>
+          <input type="file" id="file-input" accept=".mp3,.wav,.m4a,.flac,.aac,.ogg" hidden>
+        </div>
+        <div id="file-info" class="file-info hidden">
+          <p class="file-name" id="file-name"></p>
+          <p class="file-meta" id="file-meta"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>⚙️ Pengaturan</h2>
+        <label>Model</label>
+        <select id="model">
+          <option value="tiny">tiny (cepat, kurang akurat)</option>
+          <option value="base">base</option>
+          <option value="small" selected>small (default)</option>
+          <option value="medium">medium (lambat, akurat)</option>
+        </select>
+        <label>Bahasa</label>
+        <select id="language">
+          <option value="id" selected>Indonesia</option>
+          <option value="en">English</option>
+        </select>
+      </section>
+
+      <section class="card">
+        <h2>▶️ Aksi</h2>
+        <button id="btn-transcribe" class="btn primary" disabled>🚀 Transcribe</button>
+        <button id="btn-cancel" class="btn danger" disabled>⛔ Batal</button>
+      </section>
+
+      <section class="card">
+        <h2>📂 Riwayat</h2>
+        <ul id="history" class="history">
+          <li class="empty">Belum ada hasil.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- ═══ MAIN ═══ -->
+    <main class="main">
+      <section class="card">
+        <h2>📊 Status</h2>
+        <div class="progress-wrap">
+          <div id="progress-bar" class="progress-bar"><span id="progress-label">0%</span></div>
+        </div>
+        <p id="status-text" class="status-text">Siap. Pilih file audio untuk memulai.</p>
+      </section>
+
+      <section class="card">
+        <h2>📜 Log &amp; Segmen Real-time</h2>
+        <pre id="log" class="log">—</pre>
+      </section>
+
+      <section class="card">
+        <h2>📄 Hasil</h2>
+        <div class="tabs">
+          <button class="tab active" data-tab="txt">TXT</button>
+          <button class="tab" data-tab="json">JSON</button>
+          <button class="tab" data-tab="ai">Notulen AI</button>
+        </div>
+        <div class="tabs-actions" id="result-actions" hidden>
+          <span id="result-path" class="result-path"></span>
+          <button id="btn-ai-notulen" class="btn small">🤖 Buat Notulen AI</button>
+          <a id="btn-download-docx" class="btn small hidden" href="#">⬇️ Download DOCX</a>
+          <a id="btn-open-folder" class="btn small" href="#" target="_blank">Buka folder hasil</a>
+        </div>
+        <pre id="preview" class="preview">—</pre>
+      </section>
+    </main>
+
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

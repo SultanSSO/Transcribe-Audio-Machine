@@ -5,6 +5,7 @@ venv/
 # Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # Audio mentah rapat (tidak di-upload ke repo publik)
 *.mp3

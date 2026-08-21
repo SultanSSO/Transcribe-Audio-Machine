@@ -10,11 +10,21 @@ ctranslate2>=4.8.1
 onnxruntime>=1.28.0
 huggingface_hub>=1.26.0
 
+# Web dashboard (FastAPI + uvicorn) — src/web/server.py
+fastapi>=0.141.1
+uvicorn>=0.52.3
+
+# AI notulen — HTTP client ke 9router lokal (src/notulen/ai_generator.py)
+httpx>=0.28.1
+
 # GUI framework (keputusan D-1: PySide6)
 PySide6>=6.7.0
 
 # Packaging
 pyinstaller
+
+# Testing (tests/)
+pytest>=9.1.1
 
 # Opsional (kajian 4.2)
 psutil

@@ -5,6 +5,41 @@
 > **Basis engine:** `5_mesin_v3/transcribe.py` (faster-whisper + CTranslate2, WDAC workaround)
 > **Q&A hasil review:** `JAWABAN_PERTANYAAN.md` (file ini)
 
+## Setup di Laptop Baru (Windows)
+
+1. Clone repo dan masuk ke folder:
+   ```bash
+   git clone git@github.com:SultanSSO/Transcribe-Audio-Machine.git
+   cd Transcribe-Audio-Machine/firmware_transcribe
+   ```
+
+2. Buat virtualenv + install dependency:
+   ```cmd
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r requirements_gui.txt
+   ```
+
+3. Pastikan ffmpeg tersedia di PATH (cek R-09). Di Windows gunakan build Gyan:
+   https://www.gyan.dev/ffmpeg/builds/ — extract, tambahkan folder `bin/` ke PATH,
+   verifikasi dengan `ffmpeg -version`.
+
+4. Jalankan dashboard:
+   ```cmd
+   transcribe.bat
+   ```
+   (atau `./transcribe` di git-bash). Buka http://127.0.0.1:8765 — gunakan
+   `transcribe.bat --host 0.0.0.0` untuk akses dari perangkat lain di LAN.
+
+Catatan:
+- Model faster-whisper (~970 MB) di-download otomatis saat transkripsi pertama (R-05).
+- Notulen AI bersifat opsional: set env `TRANSCRIBE_AI_BASE_URL`,
+  `TRANSCRIBE_AI_MODEL`, `TRANSCRIBE_AI_API_KEY` (default: 9router lokal
+  http://localhost:20128/v1, model `gemini/gemini-3.7-flash`, tanpa key).
+  Tanpa ini transkripsi dan download DOCX tetap berfungsi.
+- File audio mentah, hasil transkrip, dan `.venv/` tidak ada di repo (gitignore);
+  semua dibuat ulang dari langkah di atas.
+
 ## Keputusan Utama (2026-08-16, amendemen 2026-08-17)
 
 | Keputusan | Pilihan | Catatan |
